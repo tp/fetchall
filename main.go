@@ -22,6 +22,7 @@ func Client(c appengine.Context) *http.Client {
 
 	if appengine.IsDevAppServer() {
 		// need to use `net` implementation with dev server, because of https://code.google.com/p/googleappengine/issues/detail?id=11076
+		logDebugf(c, "using `net` implementation")
 		tr = &http.Transport{
 			Dial: func(network, hostPort string) (net.Conn, error) {
 				host, port, err := net.SplitHostPort(hostPort)
@@ -55,6 +56,7 @@ func Client(c appengine.Context) *http.Client {
 			},
 		}
 	} else {
+		logDebugf(c, "using `appengine/socket` implementation")
 		tr = &http.Transport{
 			Dial: func(network, hostPort string) (net.Conn, error) {
 				host, port, err := net.SplitHostPort(hostPort)
