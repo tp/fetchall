@@ -7,7 +7,8 @@ import (
 	"appengine/aetest"
 )
 
-const bigFileUrl = "http://ipv4.download.thinkbroadband.com/50MB.zip"
+// const bigFileUrl = "http://ipv4.download.thinkbroadband.com/50MB.zip"
+const bigFileUrl = "http://mirror.internode.on.net/pub/test/50meg.test"
 
 func TestLoadingHugefile(t *testing.T) {
 	c, err := aetest.NewContext(nil)
