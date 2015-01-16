@@ -13,8 +13,8 @@ install:
   - $HOME/aesdk/go_appengine/goapp version
   - cd $HOME/gopath/src/
   - mkdir timm.io
-  - mv github.com/tp/ziputil timm.io/
-  - cd timm.io/ziputil
+  - mv github.com/tp/fetchall timm.io/
+  - cd timm.io/fetchall
   - go get golang.org/x/tools/cmd/vet
   - go get github.com/golang/lint/golint
 
