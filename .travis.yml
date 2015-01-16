@@ -11,10 +11,14 @@ install:
   - unzip -q go_appengine_sdk_linux_amd64-1.9.17.zip
   - cd -
   - $HOME/aesdk/go_appengine/goapp version
+  - cd $HOME/gopath/src/
+  - mkdir timm.io
+  - mv github.com/tp/ziputil timm.io/
+  - cd timm.io/ziputil
   - go get golang.org/x/tools/cmd/vet
   - go get github.com/golang/lint/golint
 
 script:
   - go vet ./...
   - golint ./...
-  - $HOME/aesdk/go_appengine/goapp/go_appengine/goapp test -v ./...
+  - $HOME/aesdk/go_appengine/goapp test -v ./...
